@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html lang="en" ng-app="myApp" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html lang="en" ng-app="myApp" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html lang="en" ng-app="myApp" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html lang="en" ng-app="myApp" class="no-js"> <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>My AngularJS App</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="bower_components/html5-boilerplate/dist/css/normalize.css">
+  <link rel="stylesheet" href="bower_components/html5-boilerplate/dist/css/main.css">
+  <link rel="stylesheet" href="app.css">
+  <script src="bower_components/html5-boilerplate/dist/js/vendor/modernizr-2.8.3.min.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+  <script src="bower_components/angular/angular.js"></script>
+  <script src="controllers.js"></script>
+  <script src="bower_components/angular-route/angular-route.js"></script>
+  <script src="app.js"></script>
+  <script src="view1/view1.js"></script>
+  <script src="view2/view2.js"></script>
+  <script src="components/version/version.js"></script>
+  <script src="components/version/version-directive.js"></script>
+  <script src="components/version/interpolate-filter.js"></script>
+</head>
+ <body  ng-controller="QuestionsListCtrl as QuestionsListCtrl">
+ 
+  <canvas add-canvas  width="960" height = "550" id = "controlPanel" >Обновите браузер.</canvas>
+  <div  ng-style="buttonsStyle" ng-model="buttons" id = "buttons">
+	  <div images-variants id="images-block" ng-style="imagesBlockStyle"> 
+		  <a ng-click="QuestionsListCtrl.clickAnswer($event)" data-number = '1' data-character = "sports" id = "first_chance"><img ng-src = 'img/hare.png' title = "Заяц"/></a>  
+		  <a ng-click="QuestionsListCtrl.clickAnswer($event)" data-number = '2' data-character = "rich" id = "two_chance"><img ng-src = 'img/money.png' /></a>   
+		  <a ng-click="QuestionsListCtrl.clickAnswer($event)" data-number = '3' data-character = "confused" id = "three_chance"><img ng-src = 'img/pocket.png'/></a>
+	  </div>
+	  <button  ng-click="QuestionsListCtrl.continueGame()" ng-style="goStyle" id="go"> Едем дальше </button>
+	  <button  ng-style="tryStyle" ng-click="QuestionsListCtrl.tryAgain()" class="tryWin"> Попробовать еще раз! </button>
+  </div>
+ 
+   
+  
+  <div ng-click = "QuestionsListCtrl.clickAnswer()">Дальше</div>
+  <div class = "main-background" class = "questions">
+	<div> 
+	 
+	</div>
+  </div>
+
+
+  <!--[if lt IE 7]>
+      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+  <![endif]-->
+
+  <div ng-view></div>
+
+  <div>Angular seed app: v<span app-version></span></div>
+
+  <!-- In production use:
+  <script src="//ajax.googleapis.com/ajax/libs/angularjs/x.x.x/angular.min.js"></script>
+  -->
+   
+   
+</body>
+</html>

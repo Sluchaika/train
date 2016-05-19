@@ -69,8 +69,8 @@ myApp.directive('addCanvas', function($http){
 		link: function (scope, element,attribure){
 	    var context = element[0].getContext('2d');
 			context.beginPath();
-			context.rect(0,75,960,500);
-			context.fillStyle = 'gray';
+			context.rect(0,75,1160,700);
+			context.fillStyle = '#999999';
 			context.fill();
 			var topOffset =  element.offset().top + context.canvas.clientHeight/1.4 ;
 			scope.buttonsStyle = {'margin-top':topOffset};
@@ -83,26 +83,26 @@ myApp.directive('addCanvas', function($http){
 			scope.$watch('current',function(){
 				 
 				var tablo = element[0].getContext('2d'),
-				            maxWidth = 870;
+				            maxWidth = 940;
 				            lineHeight = 25;
-				            x = (1000 - maxWidth) / 2;
-				            y = 160;
+				            x = (1160 - maxWidth) / 2;
+				            y = 200;
 				            text =  scope.current;
 				drawPanel();	
                 drawInnerShadow()				
 				function drawPanel(){
 					tablo.beginPath();
-					tablo.fillStyle = '#A3CCCC';
-					tablo.rect(37,100,884,230);
+					tablo.fillStyle = '#99CCCC';
+					tablo.rect(87,150,984,260);
 					tablo.lineWidth = 3;
-					tablo.strokeStyle = '#537373';
+					tablo.strokeStyle = '#339999';
 					tablo.stroke();
 					tablo.fill();	 
 				}		
 				
 				function drawInnerShadow(){
 					tablo.beginPath();
-					tablo.rect(37,100,884,230);
+					tablo.rect(87,150,984,260);
 					tablo.clip();
 					tablo.beginPath();
 					tablo.lineWidth = 5;
@@ -110,10 +110,10 @@ myApp.directive('addCanvas', function($http){
 					tablo.shadowColor = 'black';
 					tablo.shadowOffsetX = 0;
 					tablo.shadowOffsetY = 0;
-					tablo.rect(34,97,890,236);
+					tablo.rect(84,147,990,266);
 					tablo.stroke();
 					tablo.shadowBlur = 0; //для текста делаем 0 размытость
-					tablo.font = '16pt Calibri';
+					tablo.font = '20pt Calibri';
 					tablo.fillStyle = '#000000';
 				}
 				 
